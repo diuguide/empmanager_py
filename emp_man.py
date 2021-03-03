@@ -1,3 +1,6 @@
+#import json to program
+import json
+
 print("Welcome to my Python Employee Manager")
 
 #Class for all employees (this will be the parent class of all employees)
@@ -34,6 +37,12 @@ def display_role():
     print("EMPLOYEE ROSTER")
     for employee, data in employee_roster.items():
         print(employee + ": " + str(data))
+
+#write roll to file
+def write_roll_to_file():
+    with open('company_roll.json', 'a') as comp_roll:
+        json.dump(employee_roster, comp_roll)
+        comp_roll.close()
         
 #functions to create employees
 def enroll_ceo():
@@ -111,9 +120,10 @@ def create_employee(role_input):
 #call create employee 4 times to fill each employee role once
 create_employee(get_user_input())
 create_employee(get_user_input())
-create_employee(get_user_input())
-create_employee(get_user_input())
+# create_employee(get_user_input())
+# create_employee(get_user_input())
 display_role()
+write_roll_to_file()
 
 
 
