@@ -29,6 +29,12 @@ class Intern(Employee):
 #Empty dictionary for storing employees
 employee_roster = {}
 
+#Display entire company roll
+def display_role():
+    print("EMPLOYEE ROSTER")
+    for employee, data in employee_roster.items():
+        print(employee + ": " + str(data))
+        
 #functions to create employees
 def enroll_ceo():
     print("ENROLL CEO")
@@ -37,6 +43,8 @@ def enroll_ceo():
     age = input("Age:: ")
     location = input("Current location:: ")
     tenure_years = input("Years working:: ")
+    employee_roster["CEO"]=[name,age,location,tenure_years]
+    print(employee_roster)
     return CEO(name, age, location, tenure_years)
 
 def enroll_mngr():
@@ -46,6 +54,8 @@ def enroll_mngr():
     age = input("Age:: ")
     location = input("Current location:: ")
     tenure_years = input("Years working:: ")
+    employee_roster["Manager"]=[name,age,location,tenure_years]
+    print(employee_roster)
     return Manager(name, age, location, tenure_years)
 
 def enroll_prgmr():
@@ -55,6 +65,8 @@ def enroll_prgmr():
     age = input("Age:: ")
     location = input("Current location:: ")
     tenure_years = input("Years working:: ")
+    employee_roster["Programmer"]=[name,age,location,tenure_years]
+    print(employee_roster)
     return Programmer(name, age, location, tenure_years)
 
 def enroll_int():
@@ -64,18 +76,18 @@ def enroll_int():
     age = input("Age:: ")
     location = input("Current location:: ")
     tenure_years = input("Years working:: ")
+    employee_roster["Intern"]=[name,age,location,tenure_years]
+    print(employee_roster)
     return Intern(name, age, location, tenure_years)
     
 #Query user for the employee to input
-
 emp_list = ["1)CEO","2)Manager", "3)Programmer", "4)Intern"]
-
-#list out choices
-for role in emp_list:
-    print(role)
 
 #ask for number choice
 def get_user_input():
+    #list out choices
+    for role in emp_list:
+        print(role)
     print("Please pick the type of employee to enroll:")
     return input(">>>> ")
 
@@ -96,8 +108,15 @@ def create_employee(role_input):
     elif int(role_input) != len(range(1,5)):
         print("INPUT ERROR")
 
+#call create employee 4 times to fill each employee role once
 create_employee(get_user_input())
-print("End of file: testing global config settings")
+create_employee(get_user_input())
+create_employee(get_user_input())
+create_employee(get_user_input())
+display_role()
+
+
+
 
 
 
