@@ -33,18 +33,25 @@ class Intern(Employee):
 #Empty dictionary for storing employees
 employee_roster = {}
 
+#datetime manipulation
+def time_man():
+    time = datetime.now()
+    format_time = time.strftime("%A %I:%M:%S")
+    return format_time
+
 #Display entire company roll
 def display_roster():
-    print("EMPLOYEE ROSTER")
+    print("EMPLOYEE ADDED")
     print("---------------")
     for employee, data in employee_roster.items():
         print(employee + ": " + str(data))
     print("_______________")
-    print("Created: ",datetime.now())
+    print(time_man())
 
-#write roll to file
-def write_roll_to_file():
+#write position to file
+def write_roll_to_file(comp_roll):
     with open('company_roll.json', 'a') as comp_roll:
+        comp_roll.write('\n')
         json.dump(employee_roster, comp_roll)
         comp_roll.close()
         
@@ -57,7 +64,10 @@ def enroll_ceo():
     location = input("Current location:: ")
     tenure_years = input("Years working:: ")
     employee_roster["CEO"]={"name":name,"age":age,"location":location,"tenure":tenure_years}
+    write_roll_to_file(employee_roster)
     new_CEO = CEO(name, age, location, tenure_years)
+    display_roster()
+    employee_roster.clear()
     return new_CEO
 
 def enroll_mngr():
@@ -68,7 +78,10 @@ def enroll_mngr():
     location = input("Current location:: ")
     tenure_years = input("Years working:: ")
     employee_roster["Manager"]={"name":name,"age":age,"location":location,"tenure":tenure_years}
+    write_roll_to_file(employee_roster)
     new_manager = Manager(name, age, location, tenure_years)
+    display_roster()
+    employee_roster.clear()
     return new_manager
 
 def enroll_prgmr():
@@ -79,7 +92,10 @@ def enroll_prgmr():
     location = input("Current location:: ")
     tenure_years = input("Years working:: ")
     employee_roster["Programmer"]={"name":name,"age":age,"location":location,"tenure":tenure_years}
+    write_roll_to_file(employee_roster)
     new_prog = Programmer(name, age, location, tenure_years)
+    display_roster()
+    employee_roster.clear()
     return new_prog
 
 def enroll_int():
@@ -90,7 +106,10 @@ def enroll_int():
     location = input("Current location:: ")
     tenure_years = input("Years working:: ")
     employee_roster["Intern"]={"name":name,"age":age,"location":location,"tenure":tenure_years}
+    write_roll_to_file(employee_roster)
     new_intern = Intern(name, age, location, tenure_years)
+    display_roster()
+    employee_roster.clear()
     return new_intern
     
 #Query user for the employee to input
@@ -110,15 +129,19 @@ def create_employee(role_input):
         new_ceo = enroll_ceo()
         emp_list.pop(0)
         print(new_ceo)
+        print('\n')
     elif int(role_input) == 2:
         new_mngr = enroll_mngr()
         print(new_mngr)
+        print('\n')
     elif int(role_input) == 3:
         new_prgmr = enroll_prgmr()
         print(new_prgmr)
+        print('\n')
     elif int(role_input) == 4:
         new_int = enroll_int()
         print(new_int)
+        print('\n')
     elif int(role_input) != len(range(1,5)):
         print("INPUT ERROR")
 
@@ -127,8 +150,10 @@ create_employee(get_user_input())
 create_employee(get_user_input())
 create_employee(get_user_input())
 create_employee(get_user_input())
-display_roster()
-write_roll_to_file()
+
+
+
+
 
 
 
