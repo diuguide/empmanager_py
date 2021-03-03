@@ -38,27 +38,64 @@ def enroll_ceo():
     location = input("Current location:: ")
     tenure_years = input("Years working:: ")
     return CEO(name, age, location, tenure_years)
+
+def enroll_mngr():
+    print("ENROLL MANAGER")
+    print("==========")
+    name = input("Name:: ")
+    age = input("Age:: ")
+    location = input("Current location:: ")
+    tenure_years = input("Years working:: ")
+    return Manager(name, age, location, tenure_years)
+
+def enroll_prgmr():
+    print("ENROLL PROGRAMMER")
+    print("==========")
+    name = input("Name:: ")
+    age = input("Age:: ")
+    location = input("Current location:: ")
+    tenure_years = input("Years working:: ")
+    return Programmer(name, age, location, tenure_years)
+
+def enroll_int():
+    print("ENROLL INTERN")
+    print("==========")
+    name = input("Name:: ")
+    age = input("Age:: ")
+    location = input("Current location:: ")
+    tenure_years = input("Years working:: ")
+    return Intern(name, age, location, tenure_years)
     
 #Query user for the employee to input
-print("Please pick the type of employee to enroll:")
+
 emp_list = ["1)CEO","2)Manager", "3)Programmer", "4)Intern"]
 
 #list out choices
 for role in emp_list:
     print(role)
 
+
+
 #ask for number choice
-role_input = input()
+def get_user_input():
+    print("Please pick the type of employee to enroll:")
+    return input(">>>> ")
+
+role_input = get_user_input()
 
 #Elseif to direct role_input
 if int(role_input) == 1:
     new_ceo = enroll_ceo()
+    print(new_ceo)
 elif int(role_input) == 2:
     new_mngr = enroll_mngr()
+    print(new_mngr)
 elif int(role_input) == 3:
     new_prgmr = enroll_prgmr()
+    print(new_prgmr)
 elif int(role_input) == 4:
     new_int = enroll_int()
+    print(new_int)
 elif int(role_input) != len(range(1,5)):
     print("INPUT ERROR")
 
