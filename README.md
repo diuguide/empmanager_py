@@ -19,7 +19,7 @@ To use this app clone the repository from github and run ```python emp_man.py```
 
 1. The user will be asked which kind of employee they wish to add, follow the prompts and complete by pressing enter.
 
-1. The data will be stored into ```company_roll.json``` as a json object. 
+1. The data will be stored into ```company_roll.json``` as a json object for later use. 
 
 
 [back to Table of Contents](#table-of-contents)
