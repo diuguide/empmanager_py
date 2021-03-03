@@ -112,15 +112,12 @@ def create_employee(role_input):
         print(new_ceo)
     elif int(role_input) == 2:
         new_mngr = enroll_mngr()
-        emp_list.pop(1)
         print(new_mngr)
     elif int(role_input) == 3:
         new_prgmr = enroll_prgmr()
-        # emp_list.pop(2)
         print(new_prgmr)
     elif int(role_input) == 4:
         new_int = enroll_int()
-        # emp_list.pop(3)
         print(new_int)
     elif int(role_input) != len(range(1,5)):
         print("INPUT ERROR")
@@ -128,8 +125,8 @@ def create_employee(role_input):
 #call create employee 4 times to fill each employee role once
 create_employee(get_user_input())
 create_employee(get_user_input())
-# create_employee(get_user_input())
-# create_employee(get_user_input())
+create_employee(get_user_input())
+create_employee(get_user_input())
 display_roster()
 write_roll_to_file()
 
