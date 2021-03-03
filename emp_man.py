@@ -74,31 +74,30 @@ emp_list = ["1)CEO","2)Manager", "3)Programmer", "4)Intern"]
 for role in emp_list:
     print(role)
 
-
-
 #ask for number choice
 def get_user_input():
     print("Please pick the type of employee to enroll:")
     return input(">>>> ")
 
-role_input = get_user_input()
-
 #Elseif to direct role_input
-if int(role_input) == 1:
-    new_ceo = enroll_ceo()
-    print(new_ceo)
-elif int(role_input) == 2:
-    new_mngr = enroll_mngr()
-    print(new_mngr)
-elif int(role_input) == 3:
-    new_prgmr = enroll_prgmr()
-    print(new_prgmr)
-elif int(role_input) == 4:
-    new_int = enroll_int()
-    print(new_int)
-elif int(role_input) != len(range(1,5)):
-    print("INPUT ERROR")
+def create_employee(role_input):
+    if int(role_input) == 1:
+        new_ceo = enroll_ceo()
+        print(new_ceo)
+    elif int(role_input) == 2:
+        new_mngr = enroll_mngr()
+        print(new_mngr)
+    elif int(role_input) == 3:
+        new_prgmr = enroll_prgmr()
+        print(new_prgmr)
+    elif int(role_input) == 4:
+        new_int = enroll_int()
+        print(new_int)
+    elif int(role_input) != len(range(1,5)):
+        print("INPUT ERROR")
 
+create_employee(get_user_input())
+print("End of file: testing global config settings")
 
 
 
