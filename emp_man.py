@@ -49,10 +49,18 @@ for role in emp_list:
 
 #ask for number choice
 role_input = input()
-print(role_input)
+
+#Elseif to direct role_input
 if int(role_input) == 1:
-    print("Enroll CEO")
     new_ceo = enroll_ceo()
+elif int(role_input) == 2:
+    new_mngr = enroll_mngr()
+elif int(role_input) == 3:
+    new_prgmr = enroll_prgmr()
+elif int(role_input) == 4:
+    new_int = enroll_int()
+elif int(role_input) != len(range(1,5)):
+    print("INPUT ERROR")
 
 
 
